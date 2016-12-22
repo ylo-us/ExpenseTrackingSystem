@@ -4,7 +4,8 @@
   "description": "an expense tracking system",
   "main": "index.js",
   "scripts": {
-    "serverTest": "mocha test/serverTest/serverUnitTest.js"
+    "serverTest": "mocha test/serverTest/serverUnitTest.js",
+    "serverStart": "nodemon server/index.js",
   },
   "author": "Yu-An Lo",
   "license": "ISC",
