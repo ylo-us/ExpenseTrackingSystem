@@ -23,13 +23,6 @@ enter "http://localhost:8000" at your browser
 5. Report also shows the transactions within a selected period.
 6. It's a single-page app so no need to refresh browser during logged-in.
 7. When user wants to modify the transaction (amount or description), simply click on the text and type the information in the pop-out window. Click on the confirm button to sync with server.
-## Schema of Tables
-### User Table
-fileds |
---- |
-username |
-password |
-isAdmin |
 ## To be improved
 1. Refactor codes...
 2. Need more specific test cases for both front-end and backend.
