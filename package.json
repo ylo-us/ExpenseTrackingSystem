@@ -4,9 +4,9 @@
   "description": "an expense tracking system",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serverTest": "mocha test/serverTest/serverUnitTest.js"
   },
-  "author": "",
+  "author": "Yu-An Lo",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.15.3",
