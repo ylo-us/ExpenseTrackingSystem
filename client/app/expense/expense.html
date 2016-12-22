@@ -9,9 +9,10 @@
     	Description:
 	    <input type="text" ng-model="transaction.description">
     </span>
-    <button>Add New Transaction</button>
+    <button class="btn btn-info">Add New Transaction</button>
   </form>
-  <button ng-click="readTransaction()">Get Transactions</button>
+  <button ng-click="readTransaction()"
+          class="btn btn-success">Get Transactions</button>
   <table className="table table-bordered">
     <thead>
      <tr>
@@ -25,12 +26,12 @@
         <td>{{ transac.dateTime | date:'medium' }}</td>
         <td ng-click="editText($event, transac, 'amount')">${{ transac.amount }}</td>
         <td ng-click="editText($event, transac, 'description')">{{ transac.description }}</td>
-        <td><button ng-click="deleteTransaction($index, transac)">Delete Transaction</button></td>
-        <td><button ng-click="editTransaction($index, transac)">Update Transaction</button></td>
+        <td><button ng-click="deleteTransaction($index, transac)"
+                    class="btn btn-warning">Delete Transaction</button></td>
+        <td><button ng-click="editTransaction($index, transac)"
+                    class="btn btn-info">Update Transaction</button></td>
       </tr>
     </tbody>
-    
-    
   </table>
   <a href="#/signin"><strong>Log Out</strong></a>
   <a href="#/report"><strong>Read Report</strong></a>

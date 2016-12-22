@@ -1,33 +1,42 @@
 <div id="report">
   <h1>Report</h1>
-  <form name="reportForm" ng-submit="getExpense()">
-    <button>Generate Report</button>
-  </form>
-  <input id="weekInput" type="week" name="input" ng-model="week.value"
+  <div>
+  <input id="weekInput" type="week" ng-model="week.value"
            placeholder="YYYY-W##" min="2012-W32"
-           max="2016-W52" required />
-  <span>Money spent at {{week.value | date: "yyyy-Www"}}: </span>
-  Start Date:
-  <input id="startDate" type="date" name="input" ng-model="date.start" 
-          placeholder="yyyy-MM-dd" required /><br />
-  End Date:
-  <input id="endDate" type="date" name="input" ng-model="date.end" 
-          placeholder="yyyy-MM-dd" min="{{date.start | date:'yyyy-MM-dd'}}" required />
+           max="2017-W52" required />
+  <button class="btn btn-success" ng-click="calWeekly()">
+    Calculate Weekly Expense
+  </button>
+  <h3 ng-model="weeklyExpense">
+    Money spent at {{ week.value | date: "yyyy-www" }}: ${{ weeklyExpense }}
+  </h3>
+  </div>
+  <div>
+     Start Date:
+    <input id="startDate" type="date" ng-model="date.start" 
+            placeholder="yyyy-MM-dd" required />
+    End Date:
+    <input id="endDate" type="date" ng-model="date.end" 
+            placeholder="yyyy-MM-dd" min="{{date.start | date:'yyyy-MM-dd'}}" required />
+    
     <table className="table table-bordered">
-    <thead>
-     <tr>
-      <th>DateTime</th>
-      <th>Amount (USD)</th>
-      <th>Description</th>
-     </tr> 
-    </thead>
-    <tbody>
-      <tr ng-repeat="transac in expense">
-        <td>{{ transac.dateTime | date:'medium' }}</td>
-        <td>${{ transac.amount }}</td>
-        <td>{{ transac.description }}</td>
-      </tr>
-    </tbody>
+    <button ng-click="updateReport()">Refresh Expenses</button>
+      <thead>
+       <tr>
+        <th>DateTime</th>
+        <th>Amount (USD)</th>
+        <th>Description</th>
+       </tr> 
+      </thead>
+      <tbody>
+        <tr ng-repeat="transac in updateExpense">
+          <td>{{ transac.dateTime | date:'medium' }}</td>
+          <td>${{ transac.amount }}</td>
+          <td>{{ transac.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   <a href="#/signin"><strong>Log Out</strong></a>
   <a href="#/expense"><strong>Go To Expense Page</strong></a>
 </div>
