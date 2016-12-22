@@ -1,5 +1,5 @@
-<div id="expense">
-  <h1>Expense</h1>
+<div id="expense" class="container">
+  <h2>Expense</h2>
   <form name="expenseForm" ng-submit="createTransaction()">
   	<span>
   		Amount:
@@ -13,12 +13,13 @@
   </form>
   <button ng-click="readTransaction()"
           class="btn btn-success">Get Transactions</button>
-  <table className="table table-bordered">
+  <table class="table table-bordered">
     <thead>
      <tr>
       <th>DateTime</th>
       <th>Amount (USD)</th>
       <th>Description</th>
+      <th>Options</th>
      </tr> 
     </thead>
     <tbody>
@@ -27,12 +28,17 @@
         <td ng-click="editText($event, transac, 'amount')">${{ transac.amount }}</td>
         <td ng-click="editText($event, transac, 'description')">{{ transac.description }}</td>
         <td><button ng-click="deleteTransaction($index, transac)"
-                    class="btn btn-warning">Delete Transaction</button></td>
-        <td><button ng-click="editTransaction($index, transac)"
+                    class="btn btn-warning">Delete Transaction</button>
+            <button ng-click="editTransaction($index, transac)"
                     class="btn btn-info">Update Transaction</button></td>
       </tr>
     </tbody>
   </table>
-  <a href="#/signin"><strong>Log Out</strong></a>
-  <a href="#/report"><strong>Read Report</strong></a>
+
+  <div>
+    <a href="#/signin"><strong>Log Out</strong></a>
+  </div>
+  <div>
+    <a href="#/report"><strong>Read Report</strong></a>
+  </div>
 </div>

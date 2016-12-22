@@ -12,7 +12,7 @@ angular.module('report', [])
 	$scope.expense = [];
 	$scope.updateExpense = [];
 	var url = 'http://localhost:8000/api/expense';
-	
+	// function that calculates the total amount within a selected week
 	$scope.calWeekly = function() {
 		$scope.weeklyExpense = 0;
 		for (var i = 0; i < $scope.expense.length; i++) {
@@ -23,9 +23,13 @@ angular.module('report', [])
 			}
 		}
 	}
-
+	// only shows the transactions within selected period
 	$scope.updateReport = function() {
 		$scope.updateExpense.length = [];
+		$scope.date.start.setHours(0);
+		$scope.date.start.setMinutes(0);
+		$scope.date.end.setHours(23);
+		$scope.date.end.setMinutes(59);
 		for (var i = 0; i < $scope.expense.length; i++) {
 			var currentDate = new Date($scope.expense[i].dateTime);
 			if (currentDate >= $scope.date.start 
@@ -34,7 +38,7 @@ angular.module('report', [])
 			}
 		}
 	}
-
+	// loads user's transactions when page is loaded
 	var getExpense = function() {
 		$scope.expense.length = 0;
 		$http({

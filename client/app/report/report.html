@@ -1,5 +1,5 @@
-<div id="report">
-  <h1>Report</h1>
+<div id="report" class="container">
+  <h2>Report</h2>
   <div>
   <input id="weekInput" type="week" ng-model="week.value"
            placeholder="YYYY-W##" min="2012-W32"
@@ -8,7 +8,7 @@
     Calculate Weekly Expense
   </button>
   <h3 ng-model="weeklyExpense">
-    Money spent at {{ week.value | date: "yyyy-www" }}: ${{ weeklyExpense }}
+    Money spent at {{ week.value | date: "yyyy-Www" }}: ${{ weeklyExpense }}
   </h3>
   </div>
   <div>
@@ -19,8 +19,8 @@
     <input id="endDate" type="date" ng-model="date.end" 
             placeholder="yyyy-MM-dd" min="{{date.start | date:'yyyy-MM-dd'}}" required />
     
-    <table className="table table-bordered">
-    <button ng-click="updateReport()">Refresh Expenses</button>
+    <table class="table table-bordered">
+    <button class="btn btn-info" ng-click="updateReport()">Refresh Expenses</button>
       <thead>
        <tr>
         <th>DateTime</th>
@@ -37,6 +37,10 @@
       </tbody>
     </table>
   </div>
-  <a href="#/signin"><strong>Log Out</strong></a>
-  <a href="#/expense"><strong>Go To Expense Page</strong></a>
+  <div>
+    <a href="#/signin"><strong>Log Out</strong></a>
+  </div>
+  <div>
+    <a href="#/expense"><strong>Go To Expense Page</strong></a>
+  </div>
 </div>

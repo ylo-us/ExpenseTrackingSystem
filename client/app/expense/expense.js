@@ -23,7 +23,7 @@ angular.module('expense', [])
 			alert('Error happened!!');
 		})
 	}
-
+	// send the updates to server
 	$scope.editTransaction = function(e, transac) {
 		if (transac.user_id === window.currentUser) {
 			var time = new Date();
@@ -70,7 +70,7 @@ angular.module('expense', [])
 			alert('Sorry... You can only edit your own transactions.');
 		}
 	}
-
+	// updates the dom element with user's input
 	$scope.editText = function($event, transac, data) {
 		if (transac.user_id === window.currentUser) {
 			var updates = prompt('Please type updates: ');

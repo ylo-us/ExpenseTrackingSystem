@@ -12,11 +12,13 @@ apiRouter.route('/expense')
 					if (user.dataValues.isAdmin) {
 						Expense.findAll()
 									 .then(function(expense) {
+									 	res.header('Access-Control-Allow-Origin', '*');
 									 	res.send(expense);
 									 })
 					} else {
 						Expense.findAll({where: {user_id: id}})
 									 .then(function(expense) {
+									 	res.header('Access-Control-Allow-Origin', '*');
 									 	res.send(expense);
 									 })
 					}
@@ -37,11 +39,13 @@ apiRouter.route('/expense')
 					if (user.dataValues.isAdmin) {
 						Expense.findAll()
 									 .then(function(expense) {
+									 	res.header('Access-Control-Allow-Origin', '*');
 									 	res.send(expense);
 									 })
 					} else {
 						Expense.findAll({where: {user_id: id}})
 									 .then(function(expense) {
+									 	res.header('Access-Control-Allow-Origin', '*');
 									 	res.send(expense);
 									 })
 					}
@@ -57,6 +61,7 @@ apiRouter.route('/expense')
 			description: req.body.description
 		}, {where: {id: req.body.id}})
 		.then(function(result) {
+			res.header('Access-Control-Allow-Origin', '*');
 			res.send(result);
 		})
 	}
@@ -66,6 +71,7 @@ apiRouter.route('/expense')
 		var id = req.url.split('=')[1];
 		Expense.destroy({where: {id: id}})
 					 .then(function(expense) {
+					 	res.header('Access-Control-Allow-Origin', '*');
 					 	res.send('data was successfully deleted');
 					 })
 	}
@@ -78,6 +84,7 @@ apiRouter.route('/report')
 		Expense.findAll({
 			group: [sequelize.fn('date_trunc', 'day', sequelize.col('dataTime'))]
 			}).then(function(expense) {
+				res.header('Access-Control-Allow-Origin', '*');
 					 	res.send(expense);
 					 })
 	}

@@ -22,9 +22,12 @@ app.get('/', function(req, res) {
 
 app.post('/signin', passport.authenticate('local', {}), function(req, res) {
 	var userID = req.session.passport.user;
+	res.header('Access-Control-Allow-Origin', '*');
 	res.send({userID: userID});
 });
 
+// search for the user first, if user is found, do noting
+// if user is not found, add to database
 app.post('/signup', function(req, res) {
 	User.findAll({where: {username: req.body.username}})
 			.then(function (user) {
@@ -40,6 +43,7 @@ app.post('/signup', function(req, res) {
 							});
 						})
 						.then(function (user) {
+							res.header('Access-Control-Allow-Origin', '*');
 							res.send({
 								userID: user.dataValues.id,
 								admin: user.dataValues.isAdmin

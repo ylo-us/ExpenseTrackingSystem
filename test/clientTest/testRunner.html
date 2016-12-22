@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mocha Tests</title>
+    <link rel="stylesheet" href="../../node_modules/mocha/mocha.css">
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+    <script src="../../node_modules/mocha/mocha.js"></script>
+    <script src="../../node_modules/chai/chai.js"></script>
+    <script src="../../node_modules/sinon/lib/sinon.js"></script>
+    <script>mocha.setup('bdd')</script>
+
+    <script src="../../client/app/app.js"></script>
+    <script src="../../client/app/auth/auth.js"></script>
+    <script src="../../client/app/expense/expense.js"></script>
+    <script src="../../client/app/report/report.js"></script>
+
+    <script src="clientUnitTest.js"></script>
+    <script>
+      mocha.run();
+    </script>
+  </body>
+</html>
