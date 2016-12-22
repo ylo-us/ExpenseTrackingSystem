@@ -28,10 +28,3 @@ enter "http://localhost:8000" at your browser
 2. Need more specific test cases for both front-end and backend.
 3. UI/UX can be improved.
 4. Learn how to run test with AJAX requests.
-## Schema of Tables
-### user table
-| fields |
-|----------|
-| username |
-| password |
-| isAdmin |
