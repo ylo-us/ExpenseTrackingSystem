@@ -1,0 +1,17 @@
+<div id="signup">
+  <h1>SignUp</h1>
+  <form name="signinForm" ng-submit="signup()">
+  	<span>
+  		Username:
+	    <input type="text" ng-model="user.username">
+    </span>
+    <span>
+    	Password:
+	    <input type="password" ng-model="user.password">
+    </span>
+    Signup as an Admin?
+    <input type="checkbox" ng-model="user.isAdmin">
+    <button>signup</button>
+  </form>
+  <a href="#/signin">Already have an account? <strong>SignIn</strong> ...</a>
+</div>

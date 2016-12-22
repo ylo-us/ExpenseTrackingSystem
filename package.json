@@ -14,5 +14,10 @@
     "express": "^4.14.0",
     "passport-http": "^0.3.0",
     "sequelize": "^3.27.0"
+  },
+  "devDependencies": {
+    "bcrypt": "^1.0.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   }
 }

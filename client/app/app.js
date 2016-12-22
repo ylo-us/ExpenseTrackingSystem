@@ -2,23 +2,23 @@ angular.module('myApp', ['ngRoute', 'auth', 'expense', 'report'])
 .config(function($routeProvider) {
 	$routeProvider
 	.when('/', {
-		templateUrl: 'auth/signin.html',
+		templateUrl: 'app/auth/signin.html',
 		controller: 'AuthController'
 	})
 	.when('/signin', {
-		templateUrl: 'auth/signin.html',
+		templateUrl: 'app/auth/signin.html',
 		controller: 'AuthController'
 	})
 	.when('/signup', {
-		templateUrl: 'auth/signup.html',
+		templateUrl: 'app/auth/signup.html',
 		controller: 'AuthController'
 	})
 	.when('/expense', {
-		templateUrl: 'expense/expense.html',
+		templateUrl: 'app/expense/expense.html',
 		controller: 'ExpenseController'
 	})
-	.when('report', {
-		templateUrl: 'report/report.html',
+	.when('/report', {
+		templateUrl: 'app/report/report.html',
 		controller: 'ReportController'
 	})
 })

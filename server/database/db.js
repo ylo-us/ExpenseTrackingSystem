@@ -10,23 +10,21 @@ var sequelize = new Sequelize('expense_tracking', userInfo.username, userInfo.pa
   }
 });
 
-
-
 // Define User table
 var User = sequelize.define('User', {
 	username: Sequelize.STRING,
 	password: Sequelize.STRING,
-	email: Sequelize.STRING,
 	isAdmin: Sequelize.BOOLEAN
 });
 // Define Expense table
 var Expense = sequelize.define('Expense', {
 	dateTime: Sequelize.DATE,
 	amount: Sequelize.FLOAT,
-	description: Sequelize.TEXT('long')
+	description: Sequelize.TEXT('long'),
 });
 
-Expense.hasMany(User, {foreignKey: 'expense_id'});
+User.hasMany(Expense, {foreignKey: 'user_id'});
+Expense.belongsTo(User, {foreignKey: 'user_id'})
 User.sync();
 Expense.sync();
 

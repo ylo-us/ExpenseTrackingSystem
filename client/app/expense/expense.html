@@ -1,0 +1,37 @@
+<div id="expense">
+  <h1>Expense</h1>
+  <form name="expenseForm" ng-submit="createTransaction()">
+  	<span>
+  		Amount:
+	    <input type="text" ng-model="transaction.amount">
+    </span>
+    <span>
+    	Description:
+	    <input type="text" ng-model="transaction.description">
+    </span>
+    <button>Add New Transaction</button>
+  </form>
+  <button ng-click="readTransaction()">Get Transactions</button>
+  <table className="table table-bordered">
+    <thead>
+     <tr>
+      <th>DateTime</th>
+      <th>Amount (USD)</th>
+      <th>Description</th>
+     </tr> 
+    </thead>
+    <tbody>
+      <tr ng-repeat="transac in expense">
+        <td>{{ transac.dateTime | date:'medium' }}</td>
+        <td ng-click="editText($event, transac, 'amount')">${{ transac.amount }}</td>
+        <td ng-click="editText($event, transac, 'description')">{{ transac.description }}</td>
+        <td><button ng-click="deleteTransaction($index, transac)">Delete Transaction</button></td>
+        <td><button ng-click="editTransaction($index, transac)">Update Transaction</button></td>
+      </tr>
+    </tbody>
+    
+    
+  </table>
+  <a href="#/signin"><strong>Log Out</strong></a>
+  <a href="#/report"><strong>Read Report</strong></a>
+</div>
